@@ -1,0 +1,23 @@
+<p-card class="p-fluid" header="Task 4" styleClass="p-card-shadow">
+    <div class="grid p-fluid">
+        <div class="form-group p-float-label col-4">
+            <input id="box1" type="text" pInputText [(ngModel)]="box1" (input)="setValue1($event)">
+            <label for="box1">Box 1</label>
+            <small class="p-error block" *ngIf="box1 > 100">Incorrect Value</small>
+        </div>
+        <div class="form-group p-float-label col-4">
+            <input id="box2" type="text" pInputText [(ngModel)]="box2" (input)="setValue2($event)">
+            <label for="box2">Box 2</label>
+            <small class="p-error block" *ngIf="box2 > 100">Incorrect Value</small>
+        </div>
+        <div class="col-4">
+            <button pButton type="submit" label="Add" (click)="getVal()"></button>
+        </div>
+        <div class="col-4 mx-auto" *ngIf="clicked == false">
+            <p-chart type="pie" [data]="data"></p-chart>
+        </div>
+    </div>
+</p-card>
+<div class="col-5 mx-auto" *ngIf="clicked == true">
+    <p-messages [(value)]="msgs" [enableService]="false"></p-messages>
+</div>
